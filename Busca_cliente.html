@@ -1,6 +1,6 @@
 <html>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-     <title>Busca por livros</title>
+     <title>Busca por Clientes</title>
      <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -15,14 +15,13 @@
 
 <body>      
        
-    <h1>Procurar livros</h1>
-    <form method="POST" action="pesquisar.php">
-        Pesquisar:<input  type="search" name="pesquisar" placeholder=" Titulo, autor, Categoria">
+    <h1>Pesquisar por clientes</h1>
+    <form method="POST" action="pesquisar_cliente.php">
+        Pesquisar:<input  type="search" name="pesquisar" placeholder=" ..... ">
         Tipo:<select name="select">
-            <option value="Titulo">Titulo</option> 
-            <option value="Autor" selected>Autor</option>
-            <option value="Categoria"> Categoria</option>
-            <option value="ISBN"> ISBN</option>
+            <option value="Nome">Nome</option> 
+            <option value="Email" selected>Email</option>
+            <option value="Cidade"> Cidade</option>
           </select>
           <button type="submit">&#128269;</button>
     </form>
