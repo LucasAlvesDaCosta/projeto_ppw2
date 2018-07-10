@@ -8,17 +8,18 @@
      </head>
      <body>
      <nav id="nav-bar" class="navbar navbar-expand-md navbar-light fixed-top">
-       <h4>Biblioteca Comunitária</h4>
+        <h5>Biblioteca Comunitária</h5>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
+
           <div class="ml-auto">
             <ul class="navbar-nav">
               <li class="nav-item">
                 <a class="nav-link" href="home.html">Home-Page</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="cadastro.php">Voltar</a>
+                <a class="nav-link" href="cadastroServidor.php">Voltar</a>
               </li>
             </ul>
           </div><!-- /ml-auto -->
@@ -33,7 +34,7 @@
       <?=$ident = $_POST['select'];?>
       <?php
         if($ident == Nome)
-        $ident = 'UF';
+        $ident = 'Email';
       ?>
      <table class="table table-striped table-bordered table-condensed table-hover" width="450px" border="3" cellspacing="1">
 	  <tr>
@@ -52,7 +53,7 @@
     $conn = mysqli_connect($servidor, $usuario, $senha, $dbname);
     
     $pesquisar = $_POST['pesquisar'];
-    $result_cursos = "SELECT Nome,uf FROM cliente WHERE Nome LIKE '%$pesquisar%' ";
+    $result_cursos = "SELECT Nome,Email FROM servidor WHERE Nome LIKE '%$pesquisar%' ";
     $resultado_cursos = mysqli_query($conn, $result_cursos);
     $i =1;
     $t = $_POST['select'];
@@ -64,13 +65,13 @@
            echo '<tr>';
         echo '<td>' .$i.'</td>';
         echo '<td>' .$rows_cursos['Nome'].'</td>';
-        echo '<td>' .$rows_cursos['uf'].'</td>';
+        echo '<td>' .$rows_cursos['Email'].'</td>';
         echo '</tr>';
        $i +=1;
       } 
     }
          if( $t == Email){
-            $result_cursos = "SELECT Nome,Email FROM cliente WHERE Email LIKE '%$pesquisar%' ";
+            $result_cursos = "SELECT Nome,Email FROM servidor WHERE Email LIKE '%$pesquisar%' ";
             $resultado_cursos = mysqli_query($conn, $result_cursos);
             
             while($rows_cursos = mysqli_fetch_array($resultado_cursos)){
@@ -82,21 +83,6 @@
                $i +=1;
           }
         }
-              if($t == Cidade){
-                $result_cursos = "SELECT Nome,cidade FROM cliente WHERE cidade LIKE '%$pesquisar%' ";
-                $resultado_cursos = mysqli_query($conn, $result_cursos);
-
-                while($rows_cursos = mysqli_fetch_array($resultado_cursos)){
-                    echo '<tr>';
-                    echo '<td>' .$i.'</td>';
-                    echo '<td>' .$rows_cursos['Nome'].'</td>';
-                    echo '<td>' .$rows_cursos['cidade'].'</td>';
-                    echo '</tr>';
-                   $i +=1;
-              }
-            
-            }
-    
 ?>
      </table>
     </body>
