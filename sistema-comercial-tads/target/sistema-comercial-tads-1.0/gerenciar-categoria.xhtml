@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Categoria</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <p:toolbar>
+                    <p:toolbarGroup>
+                        <p:commandButton value="Novo" actionListener="#{categoriaBean.novo}"
+                                         update="@form"></p:commandButton>
+
+                        <p:commandButton value="Pesquisar" actionListener="#{categoriaBean.pesquisar}"
+                                         update="@form"></p:commandButton>
+
+                    </p:toolbarGroup>
+                </p:toolbar>
+            <p:panelGrid columns = "2">
+                
+                <h:outputLabel value="Nome" for="inputNome"></h:outputLabel>
+                <p:inputText value="#{categoriaBean.categoria.nome}" id="inputNome"></p:inputText>
+              
+                <p:commandButton value="Cadastrar" update="@form" actionListener="#{categoriaBean.adicionarCategoria()}"></p:commandButton>
+                
+                <h:outputText></h:outputText>
+                
+                <h:outputText value="id:#{categoriaBean.categoria.id}"></h:outputText>
+                <h:outputText value="Categoria:#{categoriaBean.categoria.nome}"></h:outputText>
+                                      
+            </p:panelGrid>
+            <p:dataTable value="#{categoriaBean.categorias}" var="user">
+
+                    <p:column headerText="id">
+                        <h:outputText value="#{user.id}"></h:outputText>
+                    </p:column>                    
+                    <p:column headerText="Nome">
+                        <h:outputText value="#{user.nome}"></h:outputText>
+                    </p:column>                   
+                    <p:column>
+                        <p:commandButton value="Delete" update="@form"
+                                         actionListener="#{categoriaBean.remover(user)}">
+                            <p:confirm header="Confirmação" message="Tem certeza que deseja apagar para sempre?" icon="fa fa-exclamation-triangle" />
+                        </p:commandButton>
+
+                        <p:commandButton value="Editar" update="@form"
+                                         actionListener="#{categoriaBean.editar(user)}"></p:commandButton>
+                    </p:column>
+                </p:dataTable>
+        </h:form>
+    </h:body>
+</html>
+
