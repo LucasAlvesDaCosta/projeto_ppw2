@@ -24,18 +24,29 @@
                 <h:outputLabel value="Nome" for="inputNome"></h:outputLabel>
                 <p:inputText value="#{produtoBean.produto.nome}" id="inputNome"></p:inputText>
                 
-                 <h:outputLabel value="Codigo" for="inputCodigo"></h:outputLabel>
-                 <p:inputText value="#{produtoBean.produto.codigoBarras}" id="inputCodigo"></p:inputText>
-                 
                  <h:outputLabel value="Marca" for="inputMarca"></h:outputLabel>
                  <p:inputText value="#{produtoBean.produto.marca}" id="inputMarca"></p:inputText>
                 
-                 <h:outputLabel value="UnidadeM" for="inputUnidadeM"></h:outputLabel>
-                 <p:inputText value="#{produtoBean.produto.unidadeMedida}" id="UnidadeM"></p:inputText>                    
+                 <h:outputLabel value="Codigo de Barra" for="inputCodigo"></h:outputLabel>
+                 <p:inputText value="#{produtoBean.produto.codigoBarras}" id="inputCodigo"></p:inputText>
+                                                 
+                 <h:outputLabel value="Unidade de Medidas" for="inputUnidadeM"></h:outputLabel>
+                 
+                 <p:selectOneMenu value="#{produtoBean.produto.unidadeMedida}">
+                  <f:selectItem itemLabel="KG" itemValue="KG"></f:selectItem>
+                    <f:selectItem itemLabel="MG" itemValue="MG"></f:selectItem>
+                    <f:selectItem itemLabel="PC" itemValue="PC"></f:selectItem>
+                     <f:selectItem itemLabel="CM" itemValue="CM"></f:selectItem>
+                     <f:selectItem itemLabel="PC" itemValue="PC"></f:selectItem>
+                    <f:selectItem itemLabel="M" itemValue="M"></f:selectItem>
+
+
+
+                 </p:selectOneMenu>
                 
                 <h:outputLabel value="Categoria"></h:outputLabel>
                 <p:selectOneMenu value="#{produtoBean.produto.categoria}" converterMessage="Erro de conversão">
-                    <f:selectItem itemLabel="Selecione" itemValue=""></f:selectItem>
+                    <f:selectItem itemLabel="Selecione a categoria" itemValue=""></f:selectItem>
                     <f:selectItems value="#{produtoBean.categorias}" var="cat" itemLabel="#{cat.nome}" itemValue="#{cat}"></f:selectItems>
                 </p:selectOneMenu>
                 
